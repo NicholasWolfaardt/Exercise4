@@ -63,6 +63,44 @@ def divide(a, b):
 """
 
 # TODO: Import the custom module and use its functions
+import math_operations as mo
 
+print(mo.add(1, 2))
+print(mo.subtract(2, 1))
+print(mo.multiply(4, 5))
+print(mo.divide(10, 2))
+print(mo.divide(5,0))
 
 # TODO: Use a while loop to create a simple calculator
+def get_number(message):
+    while True:
+        try:
+            return float(input(message))
+        except ValueError:
+            print("That's not a number. Try again.")
+stay = True
+while stay:
+    operation = input("Choose an operation (+, -, *, /) or type 'e' to exit: ")
+    while operation != "+" and operation != "-" and operation != "*" and operation != "/" and operation != "e":
+        operation = input("Please choose an operation from the list in the brackets (+, -, *, /) or type e to exit: ")
+
+    if operation == "e":
+        stay = False
+        print("Exiting calculator!")
+        break
+
+    num1 = get_number("Type in a number for num1: ")
+    num2 = get_number("Type in a number for num2: ")
+
+    if operation == "+":
+        result = mo.add(num1, num2)
+    elif operation == "-":
+        result = mo.subtract(num1, num2)
+    elif operation == "*":
+        result = mo.multiply(num1, num2)
+    elif operation == "/":
+        result = mo.divide(num1, num2)
+
+    print(result)
+
+
